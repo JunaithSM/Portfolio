@@ -12,6 +12,7 @@
 </head>
 
 <body>
+  <canvas id="bg-canvas"></canvas>
   <div class="container">
 
     <div class="card">
@@ -54,7 +55,8 @@
               <span><i class="fas fa-cube"></i>Slang</span>
 
             </div>
-            <p>A Vulkan based graphics renderer built using odin lang from scratch focused on rendering experiments and
+            <p>A Vulkan based graphics renderer built using odin lang from scratch focused on rendering experiments
+              and
               performance
             </p>
             <div class="status-tag progress">In Progress<i class="fas fa-hourglass-half"></i></div>
@@ -74,7 +76,8 @@
               <span><i class="fas fa-code"></i>C#</span>
               <span><i class="fas fa-cube"></i>HLSL</span>
             </div>
-            <p>A Kuwahara post-process filter for Unity’s Built-in RP, created by exploring different algorithm styles
+            <p>A Kuwahara post-process filter for Unity’s Built-in RP, created by exploring different algorithm
+              styles
               for smoother results.
             </p>
             <div class="status-tag done">Completed<i class="fas fa-check-circle"></i></div>
@@ -94,7 +97,8 @@
               <span><i class="fas fa-shapes"></i>SFML</span>
               <span><i class="fas fa-desktop"></i>Visual Studio</span>
             </div>
-            <p>A C++ soft-body 2D engine using a spring-mass system to simulate deformable physics-based interactions in
+            <p>A C++ soft-body 2D engine using a spring-mass system to simulate deformable physics-based
+              interactions in
               games.</p>
             <div class="status-tag done">Completed<i class="fas fa-check-circle"></i></div>
             <a href="https://github.com/Parven05/BlobEngine">View Project</a>
@@ -113,7 +117,8 @@
               <span><i class="fas fa-shapes"></i>SDL3</span>
               <span><i class="fas fa-gears"></i>CMAKE</span>
             </div>
-            <p>A C++ solar system simulation using SDL3 and Newtonian gravity to model orbital motion of planets around
+            <p>A C++ solar system simulation using SDL3 and Newtonian gravity to model orbital motion of planets
+              around
               a fixed sun.</p>
             <div class="status-tag done">Completed<i class="fas fa-check-circle"></i></div>
             <a href="https://github.com/Parven05/Solar2D">View Project</a>
@@ -132,7 +137,8 @@
               <span><i class="fas fa-shapes"></i>Raylib</span>
               <span><i class="fas fa-desktop"></i>Visual Studio</span>
             </div>
-            <p>A terrain generation demo using Perlin noise in C++ with Raylib to create randomized 3D landscapes.</p>
+            <p>A terrain generation demo using Perlin noise in C++ with Raylib to create randomized 3D landscapes.
+            </p>
             <div class="status-tag done">Completed<i class="fas fa-check-circle"></i></div>
             <a href="https://github.com/Parven05/Perlin-Terrain">View Project</a>
           </div>
@@ -168,7 +174,8 @@
               <span><i class="fas fa-code"></i>C#</span>
               <span><i class="fas fa-cube"></i>HLSL</span>
             </div>
-            <p>A Unity scene showcasing cel-shading and stylized rendering techniques using the built-in renderer and
+            <p>A Unity scene showcasing cel-shading and stylized rendering techniques using the built-in renderer
+              and
               custom shaders.</p>
             <div class="status-tag done">Completed<i class="fas fa-check-circle"></i></div>
             <a href="https://github.com/Parven05/Project-Rover">View Project</a>
@@ -227,7 +234,8 @@
               <span><i class="fas fa-brain"></i> Scikit-learn</span>
               <span><i class="fas fa-window-maximize"></i> PyQt5</span>
             </div>
-            <p>A machine learning model using Gradient Boosting to estimate industry-related carbon emissions based on
+            <p>A machine learning model using Gradient Boosting to estimate industry-related carbon emissions based
+              on
               various
               input features.</p>
             <div class="status-tag done">Completed<i class="fas fa-check-circle"></i></div>
@@ -248,7 +256,8 @@
               <span><i class="fas fa-code"></i>C#</span>
             </div>
 
-            <p>A Unity-based puzzle game that integrates programming logic with interactive challenges using cubes and
+            <p>A Unity-based puzzle game that integrates programming logic with interactive challenges using cubes
+              and
               triggers.</p>
             <div class="status-tag done">Completed<i class="fas fa-check-circle"></i></div>
             <a href="https://github.com/Parven05/Realm-of-Knowledge">View Project</a>
@@ -257,34 +266,6 @@
 
       </div>
     </div>
-
-    <!-- 
-    <div class="card music-card">
-      <div class="content">
-        <h1>Music Singles</h1>
-        <div class="song-card">
-          <img src="images/Heiwa.jpg" alt="Song Thumbnail" class="song-thumbnail" />
-          <div class="song-info">
-            <h2>Heiwa</h2>
-            <div class="year-stack-2025">
-              <span><i class="fas fa-calendar"></i>2025</span>
-            </div>
-            <div class="tech-stack">
-              <span><i class="fas fa-apple-alt"></i>FL Studio</span>
-            </div>
-            <div class="tech-stack">
-              <span><i class="fab fa-creative-commons"></i>CC</span>
-              <span><i class="fab fa-creative-commons-by"></i>BY</span>
-              <span><i class="fab fa-creative-commons-nc"></i>NC</span>
-            </div>
-            <p>A flute focused instrumental piece inspired by Japanese music.</p>
-
-            <a href="https://youtu.be/G30E1yZoCtw?si=Ocox948TkmdCOARW" class="play-btn" target="_blank">Listen
-              <i class="fab fa-youtube"></i></a>
-          </div>
-        </div>
-      </div>
-    </div> -->
 
   </div>
   </div>
@@ -295,5 +276,57 @@
 <footer>
   <p>© 2025 Parven. Built from scratch with 💻 & ❤️</p>
 </footer>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ canvas: document.querySelector('#bg-canvas'), alpha: true, antialias: true });
+
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  // Pull the camera back further so we have a wider field of view
+  camera.position.setZ(8);
+
+  // Create a small, sleek wireframe cube
+  const geometry = new THREE.BoxGeometry(1.5, 1.5, 1.5);
+  const material = new THREE.MeshStandardMaterial({ color: 0x64ffda, wireframe: true });
+  const cube = new THREE.Mesh(geometry, material);
+  scene.add(cube);
+
+  // Lighting
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+  scene.add(ambientLight);
+
+  function animate() {
+    requestAnimationFrame(animate);
+
+    const time = Date.now() * 0.001;
+
+    // Movement Logic:
+    // This pushes the cube to the left/right "gutters" of your site
+    // Adjust '5' to move it further out or closer in
+    cube.position.x = Math.sin(time * 0.5) * 6;
+
+    // Smooth vertical floating
+    cube.position.y = Math.cos(time * 0.8) * 2;
+
+    // Rotation
+    cube.rotation.x += 0.01;
+    cube.rotation.y += 0.01;
+
+    renderer.render(scene, camera);
+  }
+
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+
+  animate();
+</script>
 
 </html>
