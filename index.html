@@ -14,8 +14,19 @@
 </head>
 
 <body>
+
   <div id="boot-overlay">
-    <div id="terminal-text"></div>
+    <div class="cube-wrapper">
+      <div class="cube">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face right"></div>
+        <div class="face left"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+      </div>
+    </div>
+    <div id="loading-text">Rendering</div>
   </div>
 
   <canvas id="bg-canvas"></canvas>
@@ -280,8 +291,7 @@
   <script src="nav.js"></script>
   <script src="boot.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="particles.js"></script>
-  <script src="random.js"></script>
+  <script src="geometry.js"></script>
 
 </body>
 
