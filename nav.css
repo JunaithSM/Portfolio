@@ -1,0 +1,19 @@
+
+
+#nav-bar{
+    display: flex;
+    padding-bottom: 30px;
+}
+
+#nav-bar>h1{
+    margin:0px 10px;
+    cursor: pointer;
+}
+
+.active-nav{
+    text-decoration: underline;
+}
+
+.deactive-section{
+    display: none;
+}

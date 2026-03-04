@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="nav.css">
   <link rel="icon" type="image/png" href="./images/favicon.png">
 </head>
 
@@ -37,9 +38,12 @@
       </div>
     </div>
 
-    <!-- Projects Section -->
     <div class="card">
-      <h1>Projects</h1>
+      <div id="nav-bar"><h1 class="active-nav">Projects</h1><h1>Blog</h1><h1>Music</h1></div>
+      <!--==================================================================================================================================================-->
+      <!--Projects Section-->
+      <!--==================================================================================================================================================-->
+      <div id="project-section">
       <div class="projects-grid">
 
         <div class="project-card">
@@ -265,6 +269,57 @@
         </div>
 
       </div>
+      </div>
+      <!--==================================================================================================================================================-->
+      <!--Blog Section-->
+      <!--==================================================================================================================================================-->
+      <div id="blog-section" class="deactive-section">
+        <!--Blog posts will be added here-->
+        <div class="project-card">
+          <img src="images/vulkron.png" alt="Project 11">
+          <div class="content">
+            <h3>Vulkron</h3>
+            <div class="year-stack-2026">
+              <span><i class="fas fa-calendar"></i>2026</span>
+            </div>
+            <div class="tech-stack">
+              <span><i class="fas fa-shapes"></i>Vulkan</span>
+              <span><i class="fas fa-code"></i>Odin</span>
+              <span><i class="fas fa-cube"></i>Slang</span>
+
+            </div>
+            <p>A blog blog blog blog
+            </p>
+            <div class="status-tag progress">In Progress<i class="fas fa-hourglass-half"></i></div>
+            <a href="https://github.com/Parven05/KuwaharaPP">View Project</a>
+          </div>
+        </div>
+      </div>
+      <!--==================================================================================================================================================-->
+      <!--Music Section-->
+      <!--==================================================================================================================================================-->
+      <div id="music-section" class="deactive-section">
+        <!--Music will be added here-->
+        <div class="project-card">
+          <img src="images/vulkron.png" alt="Project 11">
+          <div class="content">
+            <h3>music</h3>
+            <div class="year-stack-2026">
+              <span><i class="fas fa-calendar"></i>2026</span>
+            </div>
+            <div class="tech-stack">
+              <span><i class="fas fa-shapes"></i>music</span>
+              <span><i class="fas fa-code"></i>Odin</span>
+              <span><i class="fas fa-cube"></i>music</span>
+
+            </div>
+            <p>music music musci
+            </p>
+            <div class="status-tag progress">In Progress<i class="fas fa-hourglass-half"></i></div>
+            <a href="https://github.com/Parven05/KuwaharaPP">View Project</a>
+          </div>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -329,4 +384,5 @@
   animate();
 </script>
 
+<script src="nav.js"></script>
 </html>
