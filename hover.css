@@ -1,33 +1,19 @@
-/* --- Project Card Logic --- */
 .project-card {
-    /* Default: Neutral state */
-    --glow-color: rgba(255, 255, 255, 0.05);
-    --glow-shadow: transparent;
-    --rim-opacity: 0;
-
     position: relative;
     overflow: hidden;
-    border: 1px solid var(--glow-color);
     border-radius: 16px;
-    /* Hardware accelerated transitions */
-    transition:
-        border-color 0.6s cubic-bezier(0.23, 1, 0.32, 1),
-        box-shadow 0.6s cubic-bezier(0.23, 1, 0.32, 1),
-        transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    /* Transition everything at once for brevity */
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .project-card:hover {
-    /* Hover: White Glow state */
-    --glow-color: rgba(255, 255, 255, 0.8);
-    --glow-shadow: rgba(255, 255, 255, 0.128);
-    --rim-opacity: 1;
-
-    border-color: var(--glow-color);
-    box-shadow: 0 12px 25px var(--glow-shadow);
+    border-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 12px 25px rgba(255, 255, 255, 0.128);
     transform: translateY(-8px);
 }
 
-/* --- Rim Light Edge Highlight --- */
+/* Rim Light */
 .project-card::after {
     content: "";
     position: absolute;
@@ -35,9 +21,11 @@
     left: 0;
     right: 0;
     height: 1px;
-    /* Gradient gives it the "light catching the edge" look */
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-    opacity: var(--rim-opacity);
+    opacity: 0;
     transition: opacity 0.6s ease;
-    pointer-events: none;
+}
+
+.project-card:hover::after {
+    opacity: 1;
 }

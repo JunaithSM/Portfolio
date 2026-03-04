@@ -1,45 +1,34 @@
+const canvas = document.querySelector('#bg-canvas');
+const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // Cap pixel ratio for performance
+renderer.setSize(window.innerWidth, window.innerHeight);
+
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({
-    canvas: document.querySelector('#bg-canvas'),
-    alpha: true,
-    antialias: true
-});
+camera.position.z = 15;
 
-renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setSize(window.innerWidth, window.innerHeight);
-camera.position.z = 15; // Pulled back slightly since shapes are bigger
-
-// --- 1. GEOMETRY SETUP (Scaled up by ~2x) ---
+// --- 1. GEOMETRY & MATERIAL ---
+// Reusing geometries across meshes is memory-efficient
 const geometries = [
-    new THREE.BoxGeometry(1.2, 1.2, 1.2),         // Bigger Cube
-    new THREE.ConeGeometry(0.8, 1.6, 4),          // Bigger Pyramid
-    new THREE.CylinderGeometry(0.6, 0.6, 1.4, 6), // Bigger Cylinder
-    new THREE.IcosahedronGeometry(1.0, 0)         // Bigger Low-poly Sphere
+    new THREE.BoxGeometry(1.2, 1.2, 1.2),
+    new THREE.ConeGeometry(0.8, 1.6, 4),
+    new THREE.CylinderGeometry(0.6, 0.6, 1.4, 6),
+    new THREE.IcosahedronGeometry(1.0, 0)
 ];
 
-// Constant White Material
-const material = new THREE.MeshPhongMaterial({
+// MeshBasicMaterial is faster than Phong for wireframes (no light math needed)
+const material = new THREE.MeshBasicMaterial({
     color: 0xffffff,
     transparent: true,
-    opacity: 0.4,       // Lowered opacity slightly so bigger shapes aren't distracting
-    shininess: 100,
-    wireframe: true     // High-tech structural look
+    opacity: 0.3,
+    wireframe: true
 });
 
-// Lights - Critical for white wireframe depth
-const light = new THREE.PointLight(0xffffff, 1.5);
-light.position.set(5, 5, 10);
-scene.add(light);
-scene.add(new THREE.AmbientLight(0xffffff, 0.5));
-
 // --- 2. OBJECT GENERATION ---
-const shapesCount = 35; // Slightly fewer shapes because they are larger
 const shapes = [];
-
-for (let i = 0; i < shapesCount; i++) {
-    const randomGeo = geometries[Math.floor(Math.random() * geometries.length)];
-    const mesh = new THREE.Mesh(randomGeo, material); // Use shared material for better performance
+for (let i = 0; i < 35; i++) {
+    const geo = geometries[Math.floor(Math.random() * geometries.length)];
+    const mesh = new THREE.Mesh(geo, material);
 
     mesh.position.set(
         (Math.random() - 0.5) * 50,
@@ -47,41 +36,48 @@ for (let i = 0; i < shapesCount; i++) {
         (Math.random() - 0.5) * 30
     );
 
-    mesh.userData = {
-        rotSpeed: (Math.random() - 0.5) * 0.015,
-        offset: Math.random() * Math.PI * 2
-    };
+    // Store custom properties directly for faster access in the loop
+    mesh.userData.rot = (Math.random() - 0.5) * 0.015;
+    mesh.userData.off = Math.random() * Math.PI * 2;
 
     scene.add(mesh);
     shapes.push(mesh);
 }
 
 // --- 3. ANIMATION LOOP ---
+const clock = new THREE.Clock();
 function animate() {
     requestAnimationFrame(animate);
-    const time = Date.now() * 0.0005; // Slightly slower for a more peaceful feel
 
-    shapes.forEach((mesh) => {
-        // Independent rotation
-        mesh.rotation.x += mesh.userData.rotSpeed;
-        mesh.rotation.y += mesh.userData.rotSpeed;
+    const elapsedTime = clock.getElapsedTime() * 0.5;
 
-        // Slow drifting movement
-        mesh.position.y += Math.sin(time + mesh.userData.offset) * 0.008;
-        mesh.position.x += Math.cos(time + mesh.userData.offset) * 0.004;
+    for (let i = 0; i < shapes.length; i++) {
+        const mesh = shapes[i];
+        const { rot, off } = mesh.userData;
 
-        // Reset depth if they get too close to the camera
-        mesh.position.z += 0.005;
+        // Rotation
+        mesh.rotation.x += rot;
+        mesh.rotation.y += rot;
+
+        // Drifting
+        mesh.position.y += Math.sin(elapsedTime + off) * 0.008;
+        mesh.position.x += Math.cos(elapsedTime + off) * 0.004;
+
+        // Depth Cycle
+        mesh.position.z += 0.01;
         if (mesh.position.z > 12) mesh.position.z = -25;
-    });
+    }
 
     renderer.render(scene, camera);
 }
 
+// --- 4. UTILS ---
 window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    camera.aspect = w / h;
     camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(w, h);
 });
 
 animate();
