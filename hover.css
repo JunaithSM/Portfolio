@@ -1,0 +1,50 @@
+/* 1. Base Card - Logic & Structure */
+.project-card {
+    --glow-color: transparent;
+    /* Default state */
+    position: relative;
+    overflow: hidden;
+    border: 1.5px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* 2. Hover Logic - Applied to all cards */
+.project-card:hover {
+    border-color: var(--glow-color);
+    box-shadow: 0 0 20px var(--glow-shadow);
+    transform: translateY(-5px);
+}
+
+/* 3. Color Definitions */
+.glow-red {
+    --glow-color: rgba(255, 65, 32, 0.9);
+    --glow-shadow: rgba(255, 91, 32, 0.2);
+}
+
+.glow-green {
+    --glow-color: rgba(39, 174, 95, 0.9);
+    --glow-shadow: rgba(39, 174, 96, 0.2);
+}
+
+.glow-blue {
+    --glow-color: rgba(19, 174, 240, 0.8);
+    --glow-shadow: rgba(19, 175, 240, 0.2);
+}
+
+/* 4. The "Rim Light" Edge Highlight */
+.project-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0), transparent);
+    transition: opacity 0.4s ease;
+    opacity: 0;
+}
+
+.project-card:hover::after {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    opacity: 1;
+}

@@ -1,13 +1,10 @@
-/* boot animation*/
+/* --- Boot Overlay --- */
 #boot-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
+    /* Shorthand for top, left, width, height */
     background-color: #0a0a0a;
     color: #64ffda;
-    /* Match your particle color */
     font-family: 'Fira Code', monospace;
     display: flex;
     align-items: flex-start;
@@ -16,6 +13,8 @@
     z-index: 9999;
     overflow: hidden;
     pointer-events: all;
+    /* Merged transition here */
+    transition: opacity 0.8s ease-in-out, filter 0.8s ease-in-out, transform 0.8s ease-in-out;
 }
 
 #terminal-text {
@@ -34,6 +33,38 @@
     vertical-align: middle;
 }
 
+/* --- Portfolio Reveal State --- */
+/* 1. Initial hidden state */
+.container>.card,
+footer {
+    opacity: 0;
+    transform: translateY(30px);
+    filter: blur(12px);
+    will-change: transform, opacity, filter;
+    /* Optimizes for GPU */
+    transition:
+        opacity 1.2s ease-out,
+        transform 1.0s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 1.2s ease-out;
+    transition-delay: calc(var(--card-index, 0) * 0.15s);
+}
+
+/* 2. Revealed state */
+.site-ready .container>.card,
+.site-ready footer {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+/* 3. Base Card Styles */
+.card {
+    background-color: rgba(255, 255, 255, 0.075);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* --- Animations --- */
 @keyframes blink {
 
     0%,
@@ -43,5 +74,32 @@
 
     50% {
         opacity: 0;
+    }
+}
+
+/* --- Responsive/Mobile --- */
+@media (max-width: 768px) {
+    #boot-overlay {
+        padding: 30px;
+    }
+
+    #terminal-text {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #boot-overlay {
+        padding: 20px;
+    }
+
+    #terminal-text {
+        font-size: 0.8rem;
+        line-height: 1.4;
+    }
+
+    .cursor {
+        width: 6px;
+        height: 0.9rem;
     }
 }

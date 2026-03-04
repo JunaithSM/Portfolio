@@ -1,3 +1,4 @@
+
 const bootLines = [
     "> PARVEN_OS v2.6.0 (Kernel 6.12.0-arch-1-LTS)",
     "> INITIALIZING SYSTEM BOOT...",
@@ -20,27 +21,54 @@ let lineIndex = 0;
 function typeLine() {
     if (lineIndex < bootLines.length) {
         const p = document.createElement('div');
-        p.textContent = bootLines[lineIndex];
+        p.style.marginBottom = "5px";
+        p.style.fontSize = "0.95rem";
+
+        let text = bootLines[lineIndex];
+
+        if (text.includes("ERROR")) {
+            p.style.color = "#ff2020";
+        } else if (text.includes("[OK]")) {
+            text = text.replace("[OK]", "<span style='color:#45bc1a'>[OK]</span>");
+        } else if (text.includes("AI-Ready") || text.includes("markup")) {
+            p.style.color = "#f6dd1c";
+        } else if (text.includes("SUDO")) {
+            p.style.color = "#c6ff1d";
+        }
+
+        p.innerHTML = text;
         terminal.appendChild(p);
         lineIndex++;
 
-        // Random delay to simulate "processing" time
-        const delay = Math.random() * 400 + 100;
+        let delay = Math.random() * 150 + 50;
+        if (text.includes("GPU Poor")) delay = 1000;
+        if (text.includes("PERMISSION DENIED")) delay = 800;
+
         setTimeout(typeLine, delay);
     } else {
-        // Add a final cursor and then fade out
-        terminal.innerHTML += '<span class="cursor"></span>';
+        const cursor = document.createElement('span');
+        cursor.className = 'cursor';
+        terminal.appendChild(cursor);
+
         setTimeout(() => {
-            overlay.style.transition = "opacity 1s ease";
+            overlay.style.transition = "opacity 0.8s ease, transform 1s ease, filter 0.8s ease";
             overlay.style.opacity = "0";
+            overlay.style.filter = "blur(20px)";
+            overlay.style.transform = "scale(1.1)";
+            overlay.style.pointerEvents = "none";
+
+            setTimeout(() => {
+                document.body.classList.add('site-ready');
+            }, 200);
+
             setTimeout(() => {
                 overlay.style.display = "none";
-            }, 1000);
-        }, 1000);
+            }, 1200);
+        }, 1500);
     }
 }
 
-// Start the sequence after a brief initial pause
+// Trigger boot sequence on page load
 window.addEventListener('load', () => {
-    setTimeout(typeLine, 500);
+    setTimeout(typeLine, 400);
 });
