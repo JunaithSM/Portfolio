@@ -1,24 +1,37 @@
+/* --- Global & Background --- */
 body {
   margin: 0;
   padding: 0;
   background-color: #121212;
   font-family: 'Fira Code', monospace;
   color: #ddd;
+  overflow-x: hidden;
 }
 
+#bg-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* --- Layout --- */
 .container {
   max-width: 1000px;
   margin: auto;
   padding: 36px 16px;
+  position: relative;
+  z-index: 1;
 }
 
+/* --- Main Cards --- */
 .card {
-
   background-color: rgba(255, 255, 255, 0.075);
-
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 24px;
   border-radius: 12px;
@@ -26,6 +39,26 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
+/* --- Navigation --- */
+#nav-bar {
+  display: flex;
+  padding-bottom: 30px;
+}
+
+#nav-bar>h1 {
+  margin: 0px 10px;
+  cursor: pointer;
+}
+
+.active-nav {
+  text-decoration: underline;
+}
+
+.deactive-section {
+  display: none;
+}
+
+/* --- Typography --- */
 h1 {
   margin: 0 0 16px;
   font-size: 2rem;
@@ -38,6 +71,7 @@ p {
   margin-bottom: 20px;
 }
 
+/* --- Icon Links --- */
 .icon-row {
   display: flex;
   gap: 12px;
@@ -48,12 +82,14 @@ p {
 .icon-row a {
   font-size: 1.3rem;
   transition: transform 0.2s;
+  text-decoration: none;
 }
 
 .icon-row a:hover {
   transform: scale(1.2);
 }
 
+/* Brand Colors */
 .fa-linkedin {
   color: #0077b5;
 }
@@ -90,19 +126,27 @@ p {
   color: #20c223;
 }
 
+/* --- Projects Grid & Cards --- */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
 }
 
-.project-card {
+.project-card,
+.song-card {
   background-color: #1e1e1e;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
+  transition: transform 0.2s ease;
+}
+
+.project-card:hover,
+.song-card:hover {
+  transform: translateY(-5px);
 }
 
 .project-card>img {
@@ -137,15 +181,11 @@ p {
   font-weight: bold;
 }
 
-.project-card:hover {
-  transform: translateY(-5px);
-  transition: transform 0.2s ease;
-}
-
 .project-card a:hover {
   text-decoration: underline;
 }
 
+/* --- Tags & Tech Stack --- */
 .status-tag {
   margin-top: 8px;
   display: inline-block;
@@ -157,20 +197,16 @@ p {
   color: white;
 }
 
+.status-tag i {
+  margin-left: 6px;
+}
+
 .status-tag.done {
   background-color: #27ae60;
 }
 
-.status-tag.done i {
-  margin-left: 6px;
-}
-
 .status-tag.progress {
   background-color: #e64622;
-}
-
-.status-tag.progress i {
-  margin-left: 6px;
 }
 
 .tech-stack span {
@@ -178,8 +214,7 @@ p {
   color: #ccc;
   font-size: 0.7rem;
   padding: 2px 6px;
-  margin: 2px;
-  margin-right: -5px;
+  margin: 2px -5px 2px 2px;
   display: inline-block;
   border-radius: 4px;
 }
@@ -188,10 +223,10 @@ p {
   margin-right: 4px;
 }
 
-.year-stack-2026 span {
+/* Shared Year Stack Styles */
+[class^="year-stack-"] span {
   margin-left: 2px;
   margin-bottom: 2px;
-  background-color: #1ab9bc;
   color: #121212;
   font-size: 0.7rem;
   padding: 2px 8px;
@@ -200,88 +235,31 @@ p {
   font-weight: 600;
 }
 
-.year-stack-2026 span i {
+[class^="year-stack-"] span i {
   margin-right: 4px;
+}
+
+.year-stack-2026 span {
+  background-color: #1ab9bc;
 }
 
 .year-stack-2025 span {
-  margin-left: 2px;
-  margin-bottom: 2px;
   background-color: #bca91a;
-  color: #121212;
-  font-size: 0.7rem;
-  padding: 2px 8px;
-  display: inline-block;
-  border-radius: 4px;
-  font-weight: 600;
-}
-
-.year-stack-2025 span i {
-  margin-right: 4px;
 }
 
 .year-stack-2024 span {
-  margin-left: 2px;
-  margin-bottom: 2px;
   background-color: #bc531a;
-  color: #121212;
-  font-size: 0.7rem;
-  padding: 2px 8px;
-  display: inline-block;
-  border-radius: 4px;
-  font-weight: 600;
-}
-
-.year-stack-2024 span i {
-  margin-right: 4px;
 }
 
 .year-stack-2023 span {
-  margin-left: 2px;
-  margin-bottom: 2px;
   background-color: #45bc1a;
-  color: #121212;
-  font-size: 0.7rem;
-  padding: 2px 8px;
-  display: inline-block;
-  border-radius: 4px;
-  font-weight: 600;
 }
 
-.year-stack-2023 span i {
-  margin-right: 4px;
-}
-
-.song-card:hover {
-  transform: translateY(-5px);
-  transition: transform 0.2s ease;
-}
-
-.song-thumbnail {
-  width: 120px;
-  height: 120px;
-  border-radius: 10px;
-  object-fit: cover;
-}
-
-.song-info h2 {
-  margin: 0;
-  font-size: 1.2rem;
-}
-
+/* --- Music Section Specifics --- */
 .song-card {
   margin-top: -10px;
-  display: flex;
-  flex-direction: column;
-  background: #1e1e1e;
   padding: 15px;
-  border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
   width: 220px;
-}
-
-.song-card .year-stack-2025 {
-  margin-top: 5px;
 }
 
 .song-thumbnail {
@@ -292,51 +270,37 @@ p {
   margin-bottom: 10px;
 }
 
-.song-info {
-  text-align: left;
-}
-
 .song-info h2 {
   margin: 0;
   font-size: 1.1rem;
 }
 
-.song-info .fa-youtube {
-  color: white;
-}
-
-
 .play-btn {
   display: inline-block;
-  margin-top: -3px;
+  margin-top: 8px;
   padding: 8px 14px;
   background: #f03131;
   color: #fff;
   border-radius: 6px;
   text-decoration: none;
+  transition: box-shadow 0.2s;
 }
 
 .play-btn:hover {
   box-shadow: 0 0 12px rgba(240, 49, 49, 0.7);
 }
 
+/* --- Footer --- */
 footer {
   text-align: center;
   padding: 20px;
   margin-top: 40px;
   font-size: 0.9rem;
   color: #aaa;
-  font-family: 'Fira Code', monospace;
   border-top: 1px solid #2a2a2a;
-  background-color: #121212;
 }
 
-footer p {
-  margin: 0;
-  line-height: 1.6;
-}
-
-
+/* --- Media Queries --- */
 @media (max-width: 768px) {
   h1 {
     font-size: 1.6rem;
@@ -350,22 +314,9 @@ footer p {
     justify-content: center;
   }
 
-  .icon-row a {
-    font-size: 1.4rem;
-  }
-
-  .project-card .song-card>img {
+  .project-card>img {
     height: 140px;
   }
-
-  .project-card h3 {
-    font-size: 1rem;
-  }
-
-  .project-card p {
-    font-size: 0.9rem;
-  }
-
 }
 
 @media (max-width: 480px) {
@@ -381,51 +332,7 @@ footer p {
     font-size: 1.4rem;
   }
 
-  p {
-    font-size: 0.9rem;
-  }
-
-  .icon-row a {
-    font-size: 1.3rem;
-  }
-
-  .project-card .song-card img {
+  .project-card>img {
     height: 120px;
   }
-
-  .project-card h3 {
-    font-size: 0.95rem;
-  }
-
-  .project-card p {
-    font-size: 0.85rem;
-  }
-
-  .project-card a {
-    font-size: 0.9rem;
-  }
-}
-
-#bg-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  /* Keeps it behind your cards */
-  pointer-events: none;
-  /* Allows you to still click buttons on your site */
-}
-
-/* Ensure your container/body is transparent or has a background that allows the canvas to show */
-body {
-  margin: 0;
-  background-color: #121212;
-  /* Your dark theme color */
-}
-
-.container {
-  position: relative;
-  z-index: 1;
 }

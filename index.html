@@ -8,14 +8,18 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="boot.css">
   <link rel="icon" type="image/png" href="./images/favicon.png">
 </head>
 
 <body>
-  <canvas id="bg-canvas"></canvas>
-  <div class="container">
+  <div id="boot-overlay">
+    <div id="terminal-text"></div>
+  </div>
 
+  <canvas id="bg-canvas"></canvas>
+
+  <div class="container">
     <div class="card">
       <h1>Parven</h1>
       <p>
@@ -33,356 +37,250 @@
         <a href="https://discord.gg/S3uKHJCSD2" title="Discord"><i class="fab fa-discord"></i></a>
         <a href="mailto:parven5@proton.me" title="Email"><i class="fas fa-envelope"></i></a>
         <a href="https://github.com/Parven05/Portfolio/blob/main/documents/Resume.pdf" title="Resume"><i
-            class="fas fa-file"></i>
-        </a>
+            class="fas fa-file"></i></a>
       </div>
     </div>
 
     <div class="card">
-      <div id="nav-bar"><h1 class="active-nav">Projects</h1><h1>Blog</h1><h1>Music</h1></div>
-      <!--==================================================================================================================================================-->
-      <!--Projects Section-->
-      <!--==================================================================================================================================================-->
+      <div id="nav-bar">
+        <h1 class="active-nav">Projects</h1>
+        <h1>Blog</h1>
+        <h1>Music</h1>
+      </div>
+
       <div id="project-section">
-      <div class="projects-grid">
+        <div class="projects-grid">
 
-        <div class="project-card">
-          <img src="images/vulkron.png" alt="Project 11">
-          <div class="content">
-            <h3>Vulkron</h3>
-            <div class="year-stack-2026">
-              <span><i class="fas fa-calendar"></i>2026</span>
+          <div class="project-card">
+            <img src="images/vulkron.png" alt="Project 11">
+            <div class="content">
+              <h3>Vulkron</h3>
+              <div class="year-stack-2026">
+                <span><i class="fas fa-calendar"></i> 2026</span>
+              </div>
+              <div class="tech-stack">
+                <span><i class="fas fa-shapes"></i> Vulkan</span>
+                <span><i class="fas fa-code"></i> Odin</span>
+                <span><i class="fas fa-cube"></i> Slang</span>
+              </div>
+              <p>A Vulkan based graphics renderer built using odin lang from scratch focused on rendering experiments
+                and performance</p>
+              <div class="status-tag progress">In Progress <i class="fas fa-hourglass-half"></i></div>
+              <a href="https://github.com/Parven05/KuwaharaPP">View Project</a>
             </div>
-            <div class="tech-stack">
-              <span><i class="fas fa-shapes"></i>Vulkan</span>
-              <span><i class="fas fa-code"></i>Odin</span>
-              <span><i class="fas fa-cube"></i>Slang</span>
-
-            </div>
-            <p>A Vulkan based graphics renderer built using odin lang from scratch focused on rendering experiments
-              and
-              performance
-            </p>
-            <div class="status-tag progress">In Progress<i class="fas fa-hourglass-half"></i></div>
-            <a href="https://github.com/Parven05/KuwaharaPP">View Project</a>
           </div>
-        </div>
 
-        <div class="project-card">
-          <img src="images/KuwaharaPP.gif" alt="Project 10">
-          <div class="content">
-            <h3>KuwaharaPP</h3>
-            <div class="year-stack-2025">
-              <span><i class="fas fa-calendar"></i>2025</span>
+          <div class="project-card">
+            <img src="images/KuwaharaPP.gif" alt="Project 10">
+            <div class="content">
+              <h3>KuwaharaPP</h3>
+              <div class="year-stack-2025">
+                <span><i class="fas fa-calendar"></i> 2025</span>
+              </div>
+              <div class="tech-stack">
+                <span><i class="fab fa-unity"></i> Unity3D</span>
+                <span><i class="fas fa-code"></i> C#</span>
+                <span><i class="fas fa-cube"></i> HLSL</span>
+              </div>
+              <p>A Kuwahara post-process filter for Unity’s Built-in RP, created by exploring different algorithm styles
+                for smoother results.</p>
+              <div class="status-tag done">Completed <i class="fas fa-check-circle"></i></div>
+              <a href="https://github.com/Parven05/KuwaharaPP">View Project</a>
             </div>
-            <div class="tech-stack">
-              <span><i class="fab fa-unity"></i>Unity3D</span>
-              <span><i class="fas fa-code"></i>C#</span>
-              <span><i class="fas fa-cube"></i>HLSL</span>
-            </div>
-            <p>A Kuwahara post-process filter for Unity’s Built-in RP, created by exploring different algorithm
-              styles
-              for smoother results.
-            </p>
-            <div class="status-tag done">Completed<i class="fas fa-check-circle"></i></div>
-            <a href="https://github.com/Parven05/KuwaharaPP">View Project</a>
           </div>
-        </div>
 
-        <div class="project-card">
-          <img src="images/blob.gif" alt="Project 9">
-          <div class="content">
-            <h3>Blob Engine</h3>
-            <div class="year-stack-2025">
-              <span><i class="fas fa-calendar"></i>2025</span>
+          <div class="project-card">
+            <img src="images/blob.gif" alt="Project 9">
+            <div class="content">
+              <h3>Blob Engine</h3>
+              <div class="year-stack-2025">
+                <span><i class="fas fa-calendar"></i> 2025</span>
+              </div>
+              <div class="tech-stack">
+                <span><i class="fas fa-code"></i> C++</span>
+                <span><i class="fas fa-shapes"></i> SFML</span>
+                <span><i class="fas fa-desktop"></i> Visual Studio</span>
+              </div>
+              <p>A C++ soft-body 2D engine using a spring-mass system to simulate deformable physics-based interactions
+                in games.</p>
+              <div class="status-tag done">Completed <i class="fas fa-check-circle"></i></div>
+              <a href="https://github.com/Parven05/BlobEngine">View Project</a>
             </div>
-            <div class="tech-stack">
-              <span><i class="fas fa-code"></i>C++</span>
-              <span><i class="fas fa-shapes"></i>SFML</span>
-              <span><i class="fas fa-desktop"></i>Visual Studio</span>
-            </div>
-            <p>A C++ soft-body 2D engine using a spring-mass system to simulate deformable physics-based
-              interactions in
-              games.</p>
-            <div class="status-tag done">Completed<i class="fas fa-check-circle"></i></div>
-            <a href="https://github.com/Parven05/BlobEngine">View Project</a>
           </div>
-        </div>
 
-        <div class="project-card">
-          <img src="images/Solar2D.gif" alt="Project 8">
-          <div class="content">
-            <h3>Solar2D</h3>
-            <div class="year-stack-2025">
-              <span><i class="fas fa-calendar"></i>2025</span>
+          <div class="project-card">
+            <img src="images/Solar2D.gif" alt="Project 8">
+            <div class="content">
+              <h3>Solar2D</h3>
+              <div class="year-stack-2025">
+                <span><i class="fas fa-calendar"></i> 2025</span>
+              </div>
+              <div class="tech-stack">
+                <span><i class="fas fa-code"></i> C++</span>
+                <span><i class="fas fa-shapes"></i> SDL3</span>
+                <span><i class="fas fa-gears"></i> CMAKE</span>
+              </div>
+              <p>A C++ solar system simulation using SDL3 and Newtonian gravity to model orbital motion of planets
+                around a fixed sun.</p>
+              <div class="status-tag done">Completed <i class="fas fa-check-circle"></i></div>
+              <a href="https://github.com/Parven05/Solar2D">View Project</a>
             </div>
-            <div class="tech-stack">
-              <span><i class="fas fa-code"></i>C++</span>
-              <span><i class="fas fa-shapes"></i>SDL3</span>
-              <span><i class="fas fa-gears"></i>CMAKE</span>
-            </div>
-            <p>A C++ solar system simulation using SDL3 and Newtonian gravity to model orbital motion of planets
-              around
-              a fixed sun.</p>
-            <div class="status-tag done">Completed<i class="fas fa-check-circle"></i></div>
-            <a href="https://github.com/Parven05/Solar2D">View Project</a>
           </div>
-        </div>
 
-        <div class="project-card">
-          <img src="images/perlin.png" alt="Project 7">
-          <div class="content">
-            <h3>Perlin Terrain</h3>
-            <div class="year-stack-2025">
-              <span><i class="fas fa-calendar"></i>2025</span>
+          <div class="project-card">
+            <img src="images/perlin.png" alt="Project 7">
+            <div class="content">
+              <h3>Perlin Terrain</h3>
+              <div class="year-stack-2025">
+                <span><i class="fas fa-calendar"></i> 2025</span>
+              </div>
+              <div class="tech-stack">
+                <span><i class="fas fa-code"></i> C++</span>
+                <span><i class="fas fa-shapes"></i> Raylib</span>
+                <span><i class="fas fa-desktop"></i> Visual Studio</span>
+              </div>
+              <p>A terrain generation demo using Perlin noise in C++ with Raylib to create randomized 3D landscapes.</p>
+              <div class="status-tag done">Completed <i class="fas fa-check-circle"></i></div>
+              <a href="https://github.com/Parven05/Perlin-Terrain">View Project</a>
             </div>
-            <div class="tech-stack">
-              <span><i class="fas fa-code"></i>C++</span>
-              <span><i class="fas fa-shapes"></i>Raylib</span>
-              <span><i class="fas fa-desktop"></i>Visual Studio</span>
-            </div>
-            <p>A terrain generation demo using Perlin noise in C++ with Raylib to create randomized 3D landscapes.
-            </p>
-            <div class="status-tag done">Completed<i class="fas fa-check-circle"></i></div>
-            <a href="https://github.com/Parven05/Perlin-Terrain">View Project</a>
           </div>
-        </div>
 
-        <div class="project-card">
-          <img src="images/logic.png" alt="Project 6">
-          <div class="content">
-            <h3>LogicSim</h3>
-            <div class="year-stack-2025">
-              <span><i class="fas fa-calendar"></i>2025</span>
+          <div class="project-card">
+            <img src="images/logic.png" alt="Project 6">
+            <div class="content">
+              <h3>LogicSim</h3>
+              <div class="year-stack-2025">
+                <span><i class="fas fa-calendar"></i> 2025</span>
+              </div>
+              <div class="tech-stack">
+                <span><i class="fab fa-unity"></i> Unity2D</span>
+                <span><i class="fas fa-code"></i> C#</span>
+              </div>
+              <p>A modified version of a Unity-based digital logic simulator focused on learning circuit design
+                fundamentals.</p>
+              <div class="status-tag done">Completed <i class="fas fa-check-circle"></i></div>
+              <a href="https://github.com/Parven05/LogicSim">View Project</a>
             </div>
-            <div class="tech-stack">
-              <span><i class="fab fa-unity"></i>Unity2D</span>
-              <span><i class="fas fa-code"></i>C#</span>
-            </div>
-            <p>A modified version of a Unity-based digital logic simulator focused on learning circuit design
-              fundamentals.</p>
-            <div class="status-tag done">Completed<i class="fas fa-check-circle"></i></div>
-            <a href="https://github.com/Parven05/LogicSim">View Project</a>
           </div>
-        </div>
 
-        <div class="project-card">
-          <img src="images/rover.gif" alt="Project 5">
-          <div class="content">
-            <h3>Project Rover</h3>
-            <div class="year-stack-2024">
-              <span><i class="fas fa-calendar"></i>2024</span>
+          <div class="project-card">
+            <img src="images/rover.gif" alt="Project 5">
+            <div class="content">
+              <h3>Project Rover</h3>
+              <div class="year-stack-2024">
+                <span><i class="fas fa-calendar"></i> 2024</span>
+              </div>
+              <div class="tech-stack">
+                <span><i class="fab fa-unity"></i> Unity3D</span>
+                <span><i class="fas fa-code"></i> C#</span>
+                <span><i class="fas fa-cube"></i> HLSL</span>
+              </div>
+              <p>A Unity scene showcasing cel-shading and stylized rendering techniques using the built-in renderer and
+                custom shaders.</p>
+              <div class="status-tag done">Completed <i class="fas fa-check-circle"></i></div>
+              <a href="https://github.com/Parven05/Project-Rover">View Project</a>
             </div>
-            <div class="tech-stack">
-              <span><i class="fab fa-unity"></i>Unity3D</span>
-              <span><i class="fas fa-code"></i>C#</span>
-              <span><i class="fas fa-cube"></i>HLSL</span>
-            </div>
-            <p>A Unity scene showcasing cel-shading and stylized rendering techniques using the built-in renderer
-              and
-              custom shaders.</p>
-            <div class="status-tag done">Completed<i class="fas fa-check-circle"></i></div>
-            <a href="https://github.com/Parven05/Project-Rover">View Project</a>
           </div>
-        </div>
 
-        <div class="project-card">
-          <img src="images/brownian.gif" alt="Project 4">
-          <div class="content">
-            <h3>Brownian Motion</h3>
-            <div class="year-stack-2024">
-              <span><i class="fas fa-calendar"></i>2024</span>
+          <div class="project-card">
+            <img src="images/brownian.gif" alt="Project 4">
+            <div class="content">
+              <h3>Brownian Motion</h3>
+              <div class="year-stack-2024">
+                <span><i class="fas fa-calendar"></i> 2024</span>
+              </div>
+              <div class="tech-stack">
+                <span><i class="fas fa-code"></i> C++</span>
+                <span><i class="fas fa-shapes"></i> Raylib</span>
+                <span><i class="fas fa-desktop"></i> Visual Studio</span>
+              </div>
+              <p>A C++ simulation using raylib that visually demonstrates random particle movement mimicking Brownian
+                motion.</p>
+              <div class="status-tag done">Completed <i class="fas fa-check-circle"></i></div>
+              <a href="https://github.com/Parven05/Brownian-Motion">View Project</a>
             </div>
-            <div class="tech-stack">
-              <span><i class="fas fa-code"></i>C++</span>
-              <span><i class="fas fa-shapes"></i>Raylib</span>
-              <span><i class="fas fa-desktop"></i>Visual Studio</span>
-            </div>
-            <p>A C++ simulation using raylib that visually demonstrates random particle movement mimicking Brownian
-              motion.</p>
-            <div class="status-tag done">Completed<i class="fas fa-check-circle"></i></div>
-            <a href="https://github.com/Parven05/Brownian-Motion">View Project</a>
           </div>
-        </div>
 
-
-        <div class="project-card">
-          <img src="images/2dEngine.gif" alt="Project 3">
-          <div class="content">
-            <h3>2D Physics Engine</h3>
-            <div class="year-stack-2024">
-              <span><i class="fas fa-calendar"></i>2024</span>
+          <div class="project-card">
+            <img src="images/2dEngine.gif" alt="Project 3">
+            <div class="content">
+              <h3>2D Physics Engine</h3>
+              <div class="year-stack-2024">
+                <span><i class="fas fa-calendar"></i> 2024</span>
+              </div>
+              <div class="tech-stack">
+                <span><i class="fas fa-code"></i> C++</span>
+                <span><i class="fas fa-shapes"></i> SFML</span>
+                <span><i class="fas fa-desktop"></i> Visual Studio</span>
+              </div>
+              <p>A custom-built C++ engine using SFML to simulate basic 2D physics interactions like collisions and
+                gravity.</p>
+              <div class="status-tag done">Completed <i class="fas fa-check-circle"></i></div>
+              <a href="https://github.com/Parven05/2D-Physics-Engine">View Project</a>
             </div>
-            <div class="tech-stack">
-              <span><i class="fas fa-code"></i>C++</span>
-              <span><i class="fas fa-shapes"></i>SFML</span>
-              <span><i class="fas fa-desktop"></i>Visual Studio</span>
-            </div>
-            <p>A custom-built C++ engine using SFML to simulate basic 2D physics interactions like collisions and
-              gravity.</p>
-            <div class="status-tag done">Completed<i class="fas fa-check-circle"></i></div>
-            <a href="https://github.com/Parven05/2D-Physics-Engine">View Project</a>
           </div>
-        </div>
 
-        <div class="project-card">
-          <img src="images/carbon.png" alt="Project 2">
-          <div class="content">
-            <h3>Carbon Emission Predictor</h3>
-            <div class="year-stack-2024">
-              <span><i class="fas fa-calendar"></i>2024</span>
+          <div class="project-card">
+            <img src="images/carbon.png" alt="Project 2">
+            <div class="content">
+              <h3>Carbon Emission Predictor</h3>
+              <div class="year-stack-2024">
+                <span><i class="fas fa-calendar"></i> 2024</span>
+              </div>
+              <div class="tech-stack">
+                <span><i class="fab fa-python"></i> Python</span>
+                <span><i class="fas fa-chart-bar"></i> Orange3</span>
+                <span><i class="fas fa-brain"></i> Scikit-learn</span>
+                <span><i class="fas fa-window-maximize"></i> PyQt5</span>
+              </div>
+              <p>A machine learning model using Gradient Boosting to estimate industry-related carbon emissions based on
+                various input features.</p>
+              <div class="status-tag done">Completed <i class="fas fa-check-circle"></i></div>
+              <a href="https://github.com/Parven05/Carbon-Predictor">View Project</a>
             </div>
-            <div class="tech-stack">
-              <span><i class="fab fa-python"></i> Python</span>
-              <span><i class="fas fa-chart-bar"></i> Orange3</span>
-              <span><i class="fas fa-brain"></i> Scikit-learn</span>
-              <span><i class="fas fa-window-maximize"></i> PyQt5</span>
-            </div>
-            <p>A machine learning model using Gradient Boosting to estimate industry-related carbon emissions based
-              on
-              various
-              input features.</p>
-            <div class="status-tag done">Completed<i class="fas fa-check-circle"></i></div>
-            <a href="https://github.com/Parven05/Carbon-Predictor">View Project</a>
           </div>
-        </div>
 
-
-        <div class="project-card">
-          <img src="images/realm.gif" alt="Project 1">
-          <div class="content">
-            <h3>Realm of Knowledge</h3>
-            <div class="year-stack-2023">
-              <span><i class="fas fa-calendar"></i>2023</span>
+          <div class="project-card">
+            <img src="images/realm.gif" alt="Project 1">
+            <div class="content">
+              <h3>Realm of Knowledge</h3>
+              <div class="year-stack-2023">
+                <span><i class="fas fa-calendar"></i> 2023</span>
+              </div>
+              <div class="tech-stack">
+                <span><i class="fab fa-unity"></i> Unity3D</span>
+                <span><i class="fas fa-code"></i> C#</span>
+              </div>
+              <p>A Unity-based puzzle game that integrates programming logic with interactive challenges using cubes and
+                triggers.</p>
+              <div class="status-tag done">Completed <i class="fas fa-check-circle"></i></div>
+              <a href="https://github.com/Parven05/Realm-of-Knowledge">View Project</a>
             </div>
-            <div class="tech-stack">
-              <span><i class="fab fa-unity"></i>Unity3D</span>
-              <span><i class="fas fa-code"></i>C#</span>
-            </div>
-
-            <p>A Unity-based puzzle game that integrates programming logic with interactive challenges using cubes
-              and
-              triggers.</p>
-            <div class="status-tag done">Completed<i class="fas fa-check-circle"></i></div>
-            <a href="https://github.com/Parven05/Realm-of-Knowledge">View Project</a>
           </div>
-        </div>
 
+        </div>
       </div>
-      </div>
-      <!--==================================================================================================================================================-->
-      <!--Blog Section-->
-      <!--==================================================================================================================================================-->
+
       <div id="blog-section" class="deactive-section">
-        <!--Blog posts will be added here-->
-        <div class="project-card">
-          <img src="images/vulkron.png" alt="Project 11">
-          <div class="content">
-            <h3>Vulkron</h3>
-            <div class="year-stack-2026">
-              <span><i class="fas fa-calendar"></i>2026</span>
-            </div>
-            <div class="tech-stack">
-              <span><i class="fas fa-shapes"></i>Vulkan</span>
-              <span><i class="fas fa-code"></i>Odin</span>
-              <span><i class="fas fa-cube"></i>Slang</span>
-
-            </div>
-            <p>A blog blog blog blog
-            </p>
-            <div class="status-tag progress">In Progress<i class="fas fa-hourglass-half"></i></div>
-            <a href="https://github.com/Parven05/KuwaharaPP">View Project</a>
-          </div>
-        </div>
+        <div class="projects-grid"></div>
       </div>
-      <!--==================================================================================================================================================-->
-      <!--Music Section-->
-      <!--==================================================================================================================================================-->
+
       <div id="music-section" class="deactive-section">
-        <!--Music will be added here-->
-        <div class="project-card">
-          <img src="images/vulkron.png" alt="Project 11">
-          <div class="content">
-            <h3>music</h3>
-            <div class="year-stack-2026">
-              <span><i class="fas fa-calendar"></i>2026</span>
-            </div>
-            <div class="tech-stack">
-              <span><i class="fas fa-shapes"></i>music</span>
-              <span><i class="fas fa-code"></i>Odin</span>
-              <span><i class="fas fa-cube"></i>music</span>
-
-            </div>
-            <p>music music musci
-            </p>
-            <div class="status-tag progress">In Progress<i class="fas fa-hourglass-half"></i></div>
-            <a href="https://github.com/Parven05/KuwaharaPP">View Project</a>
-          </div>
-        </div>
+        <div class="projects-grid"></div>
       </div>
+
     </div>
-
-  </div>
   </div>
 
+  <footer>
+    <p>© 2025 Parven. Built from scratch with 💻 & ❤️</p>
+  </footer>
 
-  </div>
+  <script src="nav.js"></script>
+  <script src="boot.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="particles.js"></script>
+
 </body>
-<footer>
-  <p>© 2025 Parven. Built from scratch with 💻 & ❤️</p>
-</footer>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script>
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-  const renderer = new THREE.WebGLRenderer({ canvas: document.querySelector('#bg-canvas'), alpha: true, antialias: true });
-
-  renderer.setPixelRatio(window.devicePixelRatio);
-  renderer.setSize(window.innerWidth, window.innerHeight);
-
-  // Pull the camera back further so we have a wider field of view
-  camera.position.setZ(8);
-
-  // Create a small, sleek wireframe cube
-  const geometry = new THREE.BoxGeometry(1.5, 1.5, 1.5);
-  const material = new THREE.MeshStandardMaterial({ color: 0x64ffda, wireframe: true });
-  const cube = new THREE.Mesh(geometry, material);
-  scene.add(cube);
-
-  // Lighting
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-  scene.add(ambientLight);
-
-  function animate() {
-    requestAnimationFrame(animate);
-
-    const time = Date.now() * 0.001;
-
-    // Movement Logic:
-    // This pushes the cube to the left/right "gutters" of your site
-    // Adjust '5' to move it further out or closer in
-    cube.position.x = Math.sin(time * 0.5) * 6;
-
-    // Smooth vertical floating
-    cube.position.y = Math.cos(time * 0.8) * 2;
-
-    // Rotation
-    cube.rotation.x += 0.01;
-    cube.rotation.y += 0.01;
-
-    renderer.render(scene, camera);
-  }
-
-  window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-  });
-
-  animate();
-</script>
-
-<script src="nav.js"></script>
 </html>
